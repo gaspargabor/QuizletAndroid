@@ -15,7 +15,7 @@ public class StudySetCreatingPage {
 
     public StudySetCreatingPage(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, 5);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -40,35 +40,42 @@ public class StudySetCreatingPage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/qalert_positive_button")
     AndroidElement popupAccept;
 
-    public void fillTitleField(){
-        titleField.sendKeys("gyümölcsök");
+    @AndroidFindBy(accessibility = "Done")
+    AndroidElement confirmBtn;
+
+    public void fillTitleField() {
+        wait.until(ExpectedConditions.elementToBeClickable(titleField)).sendKeys("gyümölcsök");
     }
 
-    public void fillFirstTerm(){
+    public void fillFirstTerm() {
         firstTerm.sendKeys("alma");
     }
 
-    public void fillFirstDefinition(){
+    public void fillFirstDefinition() {
         firstDefinition.sendKeys("apple");
     }
 
-    public void fillSecondTerm(){
+    public void fillSecondTerm() {
         secondTerm.sendKeys("mangó");
     }
 
-    public void fillSecondDefinition(){
+    public void fillSecondDefinition() {
         secondDefinition.sendKeys("mango");
     }
 
-    public void acceptPopup(){
+    public void acceptPopup() {
         popupAccept.click();
     }
 
-    public void clickDone(){
+    public void clickDone() {
         doneBtn.click();
     }
 
-    public void fillFields(){
+    public void clickConfirm(){
+        confirmBtn.click();
+    }
+
+    public void fillFields() {
         fillTitleField();
         fillFirstTerm();
         fillFirstDefinition();
