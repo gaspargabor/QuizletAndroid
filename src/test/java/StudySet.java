@@ -1,8 +1,10 @@
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.junit.Assert;
 import org.junit.Test;
 import pages.HomePage;
 import pages.StudySetCreatingPage;
+import pages.StudySetPage;
 import pages.StudySetSettingPage;
 
 import java.net.MalformedURLException;
@@ -23,7 +25,12 @@ public class StudySet {
         StudySetSettingPage studySetSettingPage = new StudySetSettingPage(driver);
         studySetSettingPage.setLanguages();
         studySetCreatingPage.clickConfirm();
-        Thread.sleep(5000);
+        StudySetPage studySetPage = new StudySetPage(driver);
+        studySetPage.dismissAlert();
+        Assert.assertTrue(studySetPage.checkTitle());
+        Assert.assertTrue(studySetPage.checkUsername());
+        Assert.assertTrue(studySetPage.checkNumberOfTerms());
+        util.quit(driver);
 
     }
 }
