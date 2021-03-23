@@ -18,7 +18,4 @@ public class StarterPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    public void clickSignIn(){
-        signInButton.click();
-    }
 }
