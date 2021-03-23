@@ -56,11 +56,11 @@ public class StudySetCreatingPage {
     }
 
     public void fillSecondTerm() {
-        secondTerm.sendKeys("mangó");
+        secondTerm.sendKeys("eper");
     }
 
     public void fillSecondDefinition() {
-        secondDefinition.sendKeys("mango");
+        secondDefinition.sendKeys("strawberry");
     }
 
     public void acceptPopup() {

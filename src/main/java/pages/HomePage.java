@@ -20,8 +20,16 @@ public class HomePage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/create_study_set_item")
     AndroidElement createStudySetBtn;
 
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/create_folder_item")
+    AndroidElement createFolderBtn;
+
     public void navigateToStudySetCreation(){
         plusBtn.click();
         createStudySetBtn.click();
+    }
+
+    public void navigateToFolderCreation(){
+        plusBtn.click();
+        createFolderBtn.click();
     }
 }
