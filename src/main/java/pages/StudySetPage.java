@@ -34,7 +34,7 @@ public class StudySetPage {
 
 
 
-    public void dismissAlert() throws InterruptedException {
+    public void dismissAlert() {
         wait.until(ExpectedConditions.elementToBeClickable(shareBtn));
         TouchAction touchAction=new TouchAction(driver);
         touchAction.tap(PointOption.point(530, 300)).perform();
