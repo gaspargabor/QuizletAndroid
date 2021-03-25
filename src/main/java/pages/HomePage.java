@@ -5,12 +5,16 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
     private AndroidDriver driver;
+    WebDriverWait wait;
 
     public HomePage(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, 5);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -23,13 +27,24 @@ public class HomePage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/create_folder_item")
     AndroidElement createFolderBtn;
 
-    public void navigateToStudySetCreation(){
+    @AndroidFindBy(xpath = "hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.Frame" +
+            "Layout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.Vie" +
+            "wGroup/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGrou" +
+            "p/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.widget.LinearLayout/androi" +
+            "d.widget.TextView")
+    AndroidElement viewAllFolder;
+
+    public void navigateToStudySetCreation() {
         plusBtn.click();
         createStudySetBtn.click();
     }
 
-    public void navigateToFolderCreation(){
+    public void navigateToFolderCreation() {
         plusBtn.click();
         createFolderBtn.click();
+    }
+
+    public void clickViewAllFolder() {
+        wait.until(ExpectedConditions.elementToBeClickable(viewAllFolder)).click();
     }
 }
