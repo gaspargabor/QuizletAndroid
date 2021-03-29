@@ -1,5 +1,6 @@
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.junit.Assert;
 import org.junit.Test;
 import pages.HomePage;
 import pages.ProfilePage;
@@ -12,12 +13,13 @@ public class Settings {
 
     Util util = new Util();
 
-    @Test
+    @Test ///Precondition, set Theme to white
     public void enableNightTheme() throws MalformedURLException, InterruptedException {
         driver = util.createDriver();
         HomePage homePage = new HomePage(driver);
         homePage.goToProfile();
         ProfilePage profilePage = new ProfilePage(driver);
         profilePage.switchTheme();
+        Assert.assertTrue(profilePage.checkThemeStatus());
     }
 }

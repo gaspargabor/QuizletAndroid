@@ -29,6 +29,9 @@ public class ProfilePage {
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     AndroidElement backArrow;
 
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/user_settings_nightmode_text_indicator")
+    AndroidElement themeStatus;
+
     private void clickNightTheme(){
         wait.until(ExpectedConditions.elementToBeClickable(nightTheme)).click();
     }
@@ -46,6 +49,10 @@ public class ProfilePage {
         clickNightTheme();
         clickThemeSwitch();
         clickBackArrow();
+    }
+
+    public boolean checkThemeStatus(){
+        return themeStatus.getText().equals("On");
     }
 
 
