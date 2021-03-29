@@ -26,7 +26,7 @@ public class ProfilePage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/user_settings_night_mode_switch")
     AndroidElement nightThemeSwitch;
 
-    @AndroidFindBy(accessibility = "Navigate up")
+    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
     AndroidElement backArrow;
 
     private void clickNightTheme(){
@@ -37,11 +37,12 @@ public class ProfilePage {
         nightThemeSwitch.click();
     }
 
-    private void clickBackArrow(){
-        backArrow.click();
+    private void clickBackArrow() throws InterruptedException {
+        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(backArrow)).click();
     }
 
-    public void switchTheme(){
+    public void switchTheme() throws InterruptedException {
         clickNightTheme();
         clickThemeSwitch();
         clickBackArrow();

@@ -13,7 +13,7 @@ public class Settings {
     Util util = new Util();
 
     @Test
-    public void enableNightTheme() throws MalformedURLException {
+    public void enableNightTheme() throws MalformedURLException, InterruptedException {
         driver = util.createDriver();
         HomePage homePage = new HomePage(driver);
         homePage.goToProfile();
