@@ -23,7 +23,7 @@ public class Folder {
         FolderCreationPage folderCreationPage = new FolderCreationPage(driver);
         folderCreationPage.fillFolderCreation();
         FolderPage folderPage = new FolderPage(driver);
-        Assert.assertTrue(folderPage.checkNumberOfSets());
+        Assert.assertEquals("0 sets",folderPage.checkNumberOfSets());
         Assert.assertTrue(folderPage.checkCreator());
         Assert.assertTrue(folderPage.checkTitle());
         util.quit(driver);
@@ -38,6 +38,7 @@ public class Folder {
         allFolderPage.clickFreeTimeFolder();
         FolderPage folderPage = new FolderPage(driver);
         folderPage.addSetToFolder();
+        Assert.assertEquals("1 set",folderPage.checkNumberOfSets());
         util.quit(driver);
     }
 }

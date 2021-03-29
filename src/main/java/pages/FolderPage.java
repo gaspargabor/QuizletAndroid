@@ -42,8 +42,8 @@ public class FolderPage {
     AndroidElement doneBtn;
 
 
-    public boolean checkNumberOfSets(){
-        return numberOfSets.getText().equals("0 sets");
+    public String checkNumberOfSets(){
+        return numberOfSets.getText();
     }
 
     public boolean checkCreator(){
