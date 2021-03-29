@@ -34,6 +34,9 @@ public class HomePage {
             "d.widget.TextView")
     AndroidElement viewAllFolder;
 
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/bottom_nav_menu_account")
+    AndroidElement profileBtn;
+
     public void navigateToStudySetCreation() {
         plusBtn.click();
         createStudySetBtn.click();
@@ -46,5 +49,9 @@ public class HomePage {
 
     public void clickViewAllFolder() {
         wait.until(ExpectedConditions.elementToBeClickable(viewAllFolder)).click();
+    }
+
+    public void goToProfile(){
+        profileBtn.click();
     }
 }
