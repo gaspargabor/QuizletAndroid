@@ -39,5 +39,7 @@ public class StudySet {
         viewAllSetPage.clickSpanishSet();
         StudySetPage studySetPage = new StudySetPage(driver);
         studySetPage.turnCard();
+        Assert.assertEquals("how are you?",studySetPage.getCardText());
+        util.quit(driver);
     }
 }
