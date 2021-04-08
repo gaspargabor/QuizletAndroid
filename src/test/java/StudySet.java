@@ -2,10 +2,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.junit.Assert;
 import org.junit.Test;
-import pages.HomePage;
-import pages.StudySetCreatingPage;
-import pages.StudySetPage;
-import pages.StudySetSettingPage;
+import pages.*;
 
 import java.net.MalformedURLException;
 
@@ -31,6 +28,10 @@ public class StudySet {
         Assert.assertTrue(studySetPage.checkUsername());
         Assert.assertTrue(studySetPage.checkNumberOfTerms());
         util.quit(driver);
+    }
+
+    @Test
+    public void cardTurningInSet() throws MalformedURLException {
 
     }
 }

@@ -32,23 +32,34 @@ public class StudySetPage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/setPageTermCountTextView")
     AndroidElement numberOfTerms;
 
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/contentText")
+    AndroidElement turningCard;
 
 
     public void dismissAlert() {
         wait.until(ExpectedConditions.elementToBeClickable(shareBtn));
-        TouchAction touchAction=new TouchAction(driver);
+        TouchAction touchAction = new TouchAction(driver);
         touchAction.tap(PointOption.point(530, 300)).perform();
     }
 
-    public boolean checkTitle(){
+    public boolean checkTitle() {
         return title.getText().equals("gyümölcsök");
     }
 
-    public boolean checkUsername(){
+    public boolean checkUsername() {
         return username.getText().equals("GaborTest");
     }
 
-    public boolean checkNumberOfTerms(){
+    public boolean checkNumberOfTerms() {
         return numberOfTerms.getText().equals("2 terms");
     }
+
+    public void turnCard(){
+        wait.until(ExpectedConditions.elementToBeClickable(turningCard)).click();
+    }
+
+    public String getCardText(){
+        return turningCard.getText();
+    }
+
 }

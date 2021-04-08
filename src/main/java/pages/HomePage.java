@@ -37,6 +37,12 @@ public class HomePage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/bottom_nav_menu_account")
     AndroidElement profileBtn;
 
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.Frame" +
+            "Layout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.View" +
+            "Group/android.widget.LinearLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGrou" +
+            "p/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout")
+    AndroidElement viewAllSet;
+
     public void navigateToStudySetCreation() {
         plusBtn.click();
         createStudySetBtn.click();
@@ -53,5 +59,9 @@ public class HomePage {
 
     public void goToProfile(){
         profileBtn.click();
+    }
+
+    public void clickViewAllSets(){
+        viewAllSet.click();
     }
 }
