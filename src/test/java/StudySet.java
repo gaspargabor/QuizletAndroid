@@ -32,6 +32,12 @@ public class StudySet {
 
     @Test
     public void cardTurningInSet() throws MalformedURLException {
-
+        driver = util.createDriver();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickViewAllSets();
+        ViewAllSetPage viewAllSetPage = new ViewAllSetPage(driver);
+        viewAllSetPage.clickSpanishSet();
+        StudySetPage studySetPage = new StudySetPage(driver);
+        studySetPage.turnCard();
     }
 }

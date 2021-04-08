@@ -62,6 +62,6 @@ public class HomePage {
     }
 
     public void clickViewAllSets(){
-        viewAllSet.click();
+        wait.until(ExpectedConditions.elementToBeClickable(viewAllSet)).click();
     }
 }
