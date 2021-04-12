@@ -43,6 +43,9 @@ public class HomePage {
             "p/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.LinearLayout")
     AndroidElement viewAllSet;
 
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/bottom_nav_menu_search")
+    AndroidElement searchBtn;
+
     public void navigateToStudySetCreation() {
         plusBtn.click();
         createStudySetBtn.click();
@@ -63,5 +66,9 @@ public class HomePage {
 
     public void clickViewAllSets(){
         wait.until(ExpectedConditions.elementToBeClickable(viewAllSet)).click();
+    }
+
+    public void clickSearchBtn(){
+        searchBtn.click();
     }
 }
