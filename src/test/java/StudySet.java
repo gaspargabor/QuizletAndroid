@@ -25,8 +25,8 @@ public class StudySet {
         StudySetPage studySetPage = new StudySetPage(driver);
         studySetPage.dismissAlert();
         Assert.assertTrue(studySetPage.checkTitle());
-        Assert.assertTrue(studySetPage.checkUsername());
-        Assert.assertTrue(studySetPage.checkNumberOfTerms());
+        Assert.assertEquals("GaborTest",studySetPage.checkUsername());
+        Assert.assertEquals("2 terms", studySetPage.checkNumberOfTerms());
         util.quit(driver);
     }
 

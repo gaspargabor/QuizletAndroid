@@ -46,19 +46,19 @@ public class StudySetPage {
         return title.getText().equals("gyümölcsök");
     }
 
-    public boolean checkUsername() {
-        return username.getText().equals("GaborTest");
+    public String checkUsername() {
+        return username.getText();
     }
 
-    public boolean checkNumberOfTerms() {
-        return numberOfTerms.getText().equals("2 terms");
+    public String checkNumberOfTerms() {
+        return numberOfTerms.getText();
     }
 
-    public void turnCard(){
+    public void turnCard() {
         wait.until(ExpectedConditions.elementToBeClickable(turningCard)).click();
     }
 
-    public String getCardText(){
+    public String getCardText() {
         return turningCard.getText();
     }
 

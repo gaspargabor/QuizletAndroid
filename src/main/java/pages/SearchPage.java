@@ -29,7 +29,7 @@ public class SearchPage {
     AndroidElement set;
 
     private void sendText(){
-        wait.until(ExpectedConditions.elementToBeClickable(searchField)).sendKeys("Days of the Week");
+        wait.until(ExpectedConditions.elementToBeClickable(searchField)).sendKeys("Days of the week");
         searchField.click();
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
@@ -40,7 +40,7 @@ public class SearchPage {
 
     public void getSet(){
         sendText();
-        searchField
+        searchSet();
     }
 
 }
