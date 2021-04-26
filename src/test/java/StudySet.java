@@ -27,6 +27,11 @@ public class StudySet {
         Assert.assertTrue(studySetPage.checkTitle());
         Assert.assertEquals("GaborTest",studySetPage.checkUsername());
         Assert.assertEquals("2 terms", studySetPage.checkNumberOfTerms());
+        studySetPage.clickBackArrow();
+        homePage.clickViewAllSets();
+        ViewAllSetPage viewAllSetPage = new ViewAllSetPage(driver);
+        viewAllSetPage.clickGyumolcsokSet();
+        studySetPage.deleteSet();
         util.quit(driver);
     }
 

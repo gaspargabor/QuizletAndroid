@@ -73,5 +73,17 @@ public class StudySetPage {
     private void clickTripleDot(){
         wait.until(ExpectedConditions.elementToBeClickable(tripleDot)).click();
     }
+    private void clickDelete(){
+        wait.until(ExpectedConditions.elementToBeClickable(deleteSet)).click();
+    }
+
+    private void clickConfirm(){
+        wait.until(ExpectedConditions.elementToBeClickable(confirmBtn)).click();
+    }
+    public void deleteSet(){
+        clickTripleDot();
+        clickDelete();
+        clickConfirm();
+    }
 
 }
