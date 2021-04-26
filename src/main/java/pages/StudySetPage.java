@@ -11,30 +11,34 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StudySetPage {
-    private AndroidDriver driver;
     WebDriverWait wait;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/share_set_button")
+    AndroidElement shareBtn;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/headerTitleText")
+    AndroidElement title;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/profileUsernameList")
+    AndroidElement username;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/setPageTermCountTextView")
+    AndroidElement numberOfTerms;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/contentText")
+    AndroidElement turningCard;
+    @AndroidFindBy(accessibility = "Navigate up")
+    AndroidElement backArrow;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/menu_more")
+    AndroidElement tripleDot;
+    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
+            ".scrollIntoView(new UiSelector().text(\"Delete set\"))")
+    AndroidElement deleteSet;
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/qalert_positive_button")
+    AndroidElement confirmBtn;
+
+    private final AndroidDriver driver;
 
     public StudySetPage(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 5);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/share_set_button")
-    AndroidElement shareBtn;
-
-    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/headerTitleText")
-    AndroidElement title;
-
-    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/profileUsernameList")
-    AndroidElement username;
-
-    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/setPageTermCountTextView")
-    AndroidElement numberOfTerms;
-
-    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/contentText")
-    AndroidElement turningCard;
-
 
     public void dismissAlert() {
         wait.until(ExpectedConditions.elementToBeClickable(shareBtn));
@@ -60,6 +64,14 @@ public class StudySetPage {
 
     public String getCardText() {
         return turningCard.getText();
+    }
+
+    public void clickBackArrow() {
+        wait.until(ExpectedConditions.elementToBeClickable(backArrow)).click();
+    }
+
+    private void clickTripleDot(){
+        wait.until(ExpectedConditions.elementToBeClickable(tripleDot)).click();
     }
 
 }

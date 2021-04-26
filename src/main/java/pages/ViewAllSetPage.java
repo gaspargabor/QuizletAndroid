@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ViewAllSetPage {
@@ -21,9 +22,15 @@ public class ViewAllSetPage {
             ".scrollIntoView(new UiSelector().text(\"Spanish, Spanish Basics\"))")
     AndroidElement spanishSet;
 
+    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true))" +
+            ".scrollIntoView(new UiSelector().text(\"gyümölcsök\"))")
+    AndroidElement gyumolcsokSet;
+
     public void clickSpanishSet(){
         spanishSet.click();
     }
 
-
+    public void clickGyumolcsokSet(){
+        wait.until(ExpectedConditions.elementToBeClickable(gyumolcsokSet)).click();
+    }
 }
