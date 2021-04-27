@@ -37,7 +37,7 @@ public class StudySetSettingPage {
     }
 
     public void setLanguages() throws InterruptedException {
-        termsLanguage.click();
+        wait.until(ExpectedConditions.elementToBeClickable(termsLanguage)).click();
         hungarian.click();
         definitionLanguage.click();
         english.click();
