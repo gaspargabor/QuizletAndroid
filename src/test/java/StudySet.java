@@ -32,6 +32,8 @@ public class StudySet {
         ViewAllSetPage viewAllSetPage = new ViewAllSetPage(driver);
         viewAllSetPage.clickGyumolcsokSet();
         studySetPage.deleteSet();
+        viewAllSetPage.checkDeletedSet();
+        Assert.assertTrue(viewAllSetPage.checkDeletedSet());
         util.quit(driver);
     }
 

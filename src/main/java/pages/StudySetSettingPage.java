@@ -32,7 +32,7 @@ public class StudySetSettingPage {
 
     public StudySetSettingPage(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 5);
+        this.wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
