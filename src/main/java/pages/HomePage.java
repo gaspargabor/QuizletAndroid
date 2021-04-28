@@ -46,6 +46,9 @@ public class HomePage {
     @AndroidFindBy(id = "com.quizlet.quizletandroid:id/bottom_nav_menu_search")
     AndroidElement searchBtn;
 
+    @AndroidFindBy(id = "com.quizlet.quizletandroid:id/create_class_item")
+    AndroidElement createClassBtn;
+
     public void navigateToStudySetCreation() {
         plusBtn.click();
         createStudySetBtn.click();
@@ -70,5 +73,14 @@ public class HomePage {
 
     public void clickSearchBtn(){
         searchBtn.click();
+    }
+
+    private void clickClassCreation(){
+        wait.until(ExpectedConditions.elementToBeClickable(createClassBtn)).click();
+    }
+
+    public void navigateToClassCreation(){
+        plusBtn.click();
+        clickClassCreation();
     }
 }
